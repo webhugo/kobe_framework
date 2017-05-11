@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="kobe_framework:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="kobe_framework.war">
+      <element id="artifact" artifact-name="kobe_framework:war exploded" />
+    </root>
+  </artifact>
+</component>
