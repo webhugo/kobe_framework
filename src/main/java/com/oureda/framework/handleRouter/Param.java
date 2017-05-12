@@ -1,22 +1,37 @@
 package com.oureda.framework.handleRouter;
 
+import java.util.List;
 import java.util.Map;
 
 /**
  * Created by webhugo on 17-5-11.
  */
 public class Param {
-    private Map<String,Object> map;
+    List<FileParam> fileParamList;
+    List<FormParam> formParamList;
 
-    public Map<String, Object> getMap() {
-        return map;
+    public Param(List<FormParam> formParamList) {
+        this.formParamList = formParamList;
     }
 
-    public void setMap(Map<String, Object> map) {
-        this.map = map;
+    public Param(List<FileParam> fileParamList, List<FormParam> formParamList) {
+        this.fileParamList = fileParamList;
+        this.formParamList = formParamList;
     }
 
-    public Param(Map<String, Object> map) {
-        this.map = map;
+    public List<FileParam> getFileParamList() {
+        return fileParamList;
+    }
+
+    public void setFileParamList(List<FileParam> fileParamList) {
+        this.fileParamList = fileParamList;
+    }
+
+    public List<FormParam> getFormParamList() {
+        return formParamList;
+    }
+
+    public void setFormParamList(List<FormParam> formParamList) {
+        this.formParamList = formParamList;
     }
 }

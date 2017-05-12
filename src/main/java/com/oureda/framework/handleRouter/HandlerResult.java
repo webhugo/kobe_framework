@@ -43,10 +43,11 @@ public class HandlerResult {
                     response.sendRedirect(request.getContextPath() + view.getPath());
                 } else {
                     Map<String, Object> map = view.getModel();
-                    for (Map.Entry<String, Object> v : map.entrySet()) {
-                        request.setAttribute(v.getKey(), v.getValue());
-                    }
-                    request.getRequestDispatcher(Config.map.get(Config.JSP_PATH) + view.getPath()).forward(request,response);
+                    if (map != null && map.size() != 0)
+                        for (Map.Entry<String, Object> v : map.entrySet()) {
+                            request.setAttribute(v.getKey(), v.getValue());
+                        }
+                    request.getRequestDispatcher(Config.map.get(Config.JSP_PATH) + view.getPath()).forward(request, response);
                 }
             }
         }

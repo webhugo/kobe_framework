@@ -5,10 +5,12 @@ import com.oureda.framework.config.Config;
 import com.oureda.framework.handleRouter.Handler;
 import com.oureda.framework.handleRouter.HandlerResult;
 import com.oureda.framework.handleRouter.Param;
+import com.oureda.framework.handleRouter.RequestParamHelper;
 import com.oureda.framework.load.InitController;
 import com.oureda.framework.load.LoadAllBean;
 import com.oureda.framework.util.ClassUtil;
 import com.oureda.framework.util.ReflectUtil;
+import org.apache.commons.fileupload.FileUploadException;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
@@ -45,6 +47,7 @@ public class DispatcherServlet extends HttpServlet {
         jspServlet.addMapping("/index.jsp");
         jspServlet.addMapping(Config.map.get(Config.JSP_PATH) + "*");
 
+        RequestParamHelper.init(servletContext);
     }
 
     @Override
@@ -53,14 +56,13 @@ public class DispatcherServlet extends HttpServlet {
         try {
             String requestMethod = request.getMethod().toUpperCase();
             String requestPath = request.getRequestURI();
-            Enumeration<String> names = request.getParameterNames();
-            Map<String, Object> map = null;
-            if (names.hasMoreElements()) {
-                map = new HashMap<>();
-                while (names.hasMoreElements()) {
-                    String name = names.nextElement();
-                    map.put(name, request.getParameter(name));
-                }
+
+            Param param = null;
+
+            try {
+                param = RequestParamHelper.createParam(request);
+            } catch (FileUploadException e) {
+                e.printStackTrace();
             }
 
             Handler handler = InitController.getHandler(requestMethod, requestPath);
@@ -71,8 +73,8 @@ public class DispatcherServlet extends HttpServlet {
 
                 Object result;
                 Method actionMethod = handler.getMethod();
-                if (actionMethod.getTypeParameters() != null) {
-                    result = ReflectUtil.invokeMethod(controllerBean, actionMethod, new Param(map));
+                if (actionMethod.getParameterTypes().length != 0) {
+                    result = ReflectUtil.invokeMethod(controllerBean, actionMethod, param);
                 } else {
                     result = ReflectUtil.invokeMethod(controllerBean, actionMethod);
                 }

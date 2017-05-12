@@ -3,12 +3,13 @@ package com.oureda.project.controller;
 import com.oureda.framework.annotation.Controller;
 import com.oureda.framework.annotation.Inject;
 import com.oureda.framework.annotation.Routing;
-import com.oureda.framework.handleRouter.Data;
-import com.oureda.framework.handleRouter.Param;
-import com.oureda.framework.handleRouter.View;
+import com.oureda.framework.handleRouter.*;
+import com.oureda.framework.util.FileUtil;
 import com.oureda.project.service.HelloService;
 
+import java.io.*;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -19,8 +20,8 @@ public class HelloWordController {
     @Inject
     private HelloService helloService;
 
-    @Routing(value = "/data",method = Routing.METHOD.GET)
-    public Data data(){
+    @Routing(value = "/data", method = Routing.METHOD.GET)
+    public Data data() {
         helloService.sayHello();
         Data data = new Data();
         data.setData("data");
@@ -28,17 +29,34 @@ public class HelloWordController {
     }
 
 
-    @Routing(value = "/view",method = Routing.METHOD.GET)
-    public View view(Param param){
-        System.out.println("param: "+param.getMap());
+    @Routing(value = "/view", method = Routing.METHOD.GET)
+    public View view(Param param) {
+        List<FormParam> formParamList = param.getFormParamList();
+        for (FormParam formParam : formParamList) {
+            System.out.println(formParam);
+        }
         helloService.sayHello();
         View view = new View();
         view.setPath("index.jsp");
-        Map<String,Object> map = new HashMap<>();
-        map.put("test","test");
+        Map<String, Object> map = new HashMap<>();
+        map.put("test", "test");
         view.setModel(map);
         System.out.println(view);
         return view;
     }
 
+
+    @Routing(value = "/jsp", method = Routing.METHOD.GET)
+    public View view() {
+        // TODO 17-5-12
+        return new View("upload.jsp");
+    }
+
+    @Routing(value = "/upload", method = Routing.METHOD.POST)
+    public View upload(Param param) throws IOException {
+        // TODO 17-5-12
+        List<FileParam> fileParamList = param.getFileParamList();
+        System.out.println(fileParamList.size());
+        return new View("index.jsp");
+    }
 }

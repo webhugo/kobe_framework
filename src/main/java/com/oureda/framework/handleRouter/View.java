@@ -9,6 +9,18 @@ public class View {
     private String path;
     private Map<String,Object> model;
 
+    public View() {
+    }
+
+    public View(String path) {
+        this.path = path;
+    }
+
+    public View(String path, Map<String, Object> model) {
+        this.path = path;
+        this.model = model;
+    }
+
     public String getPath() {
         return path;
     }
