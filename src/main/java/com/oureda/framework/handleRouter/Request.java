@@ -32,10 +32,17 @@ public class Request {
     }
 
 
-
     @Override
     public int hashCode() {
-        return this.requestMethod.hashCode()+this.requestPath.hashCode();
+        int code1=0;
+        int code2=0;
+        if (this.requestMethod != null) {
+            code1 = requestMethod.hashCode();
+        }
+        if (this.requestPath != null) {
+            code2 = requestPath.hashCode();
+        }
+        return code1+code2;
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.oureda.project.controller;
+package com.oureda.project.service;
 
 import com.oureda.framework.annotation.Service;
 
