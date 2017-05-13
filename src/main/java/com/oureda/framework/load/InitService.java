@@ -21,7 +21,6 @@ public class InitService {
     private static Set<Class<?>> SERVICE_SET = new HashSet<>();
     public static Set<Class<?>> set = null;
     static {
-        System.out.println("initService");
         // TODO: 17-5-10 初始化工作
         set = LoadAllClass.set;
         for (Class<?> cls : set) {
@@ -34,6 +33,5 @@ public class InitService {
 
 
     public static void main(String[] args) {
-        System.out.println(SERVICE_SET);;
     }
 }

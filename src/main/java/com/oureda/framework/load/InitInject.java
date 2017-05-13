@@ -19,7 +19,6 @@ public class InitInject {
     public static Map<Class<?>, Object> BEAN_MAP;
 
     static {
-        System.out.println("intiInject");
         BEAN_MAP = LoadAllBean.BEAN_MAP;
         for (Map.Entry<Class<?>, Object> entry : BEAN_MAP.entrySet()) {
             Class<?> beanClass = entry.getKey();

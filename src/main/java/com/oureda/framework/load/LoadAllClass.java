@@ -10,7 +10,4 @@ import java.util.Set;
  */
 public class LoadAllClass {
     public static Set<Class<?>> set = ClassUtil.getClassSet(Config.map.get("BASE_PACKAGE"));
-    static {
-        System.out.println("initLoadAllClass");
-    }
 }

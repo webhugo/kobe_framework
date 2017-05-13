@@ -30,13 +30,11 @@ public final class PropsUtil {
             props = new Properties();
             props.load(is);
         } catch (IOException e) {
-            System.out.println("load properties file failure"+ e);
         } finally {
             if (is != null) {
                 try {
                     is.close();
                 } catch (IOException e) {
-                    System.out.println("close input stream failure"+ e);
                 }
             }
         }

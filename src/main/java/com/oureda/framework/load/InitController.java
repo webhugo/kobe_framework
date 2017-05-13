@@ -22,7 +22,6 @@ public class InitController {
     public static Map<Request, Handler> HANDLER_MAP;
     public static Set<Class<?>> set = null;
     static {
-        System.out.println("initController");
         // TODO: 17-5-10 初始化工作
         set = LoadAllClass.set;
         for (Class<?> cls : set) {
@@ -34,7 +33,6 @@ public class InitController {
 
     public static Handler getHandler(String requestMethod, String requestPath){
         Request request = new Request(requestPath,requestMethod);
-        System.out.println(request);
         return InitRouting.HANDLER_MAP.get(request);
     }
 

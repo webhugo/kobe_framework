@@ -32,11 +32,9 @@ public class FileUtil {
                 //创建目标文件
                 if (!file.createNewFile()) {
                     message = "create file " + filePath + " fail";
-                    System.out.println(message);
                     throw new IOException(message);
                 }
             } catch (IOException e) {
-                System.out.println("创建文件失败");
                 e.printStackTrace();
             }
         }

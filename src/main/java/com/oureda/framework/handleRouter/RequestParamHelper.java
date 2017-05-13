@@ -33,9 +33,7 @@ public class RequestParamHelper {
     public static Param createParam(HttpServletRequest request) throws IOException, FileUploadException {
         Param param = null;
         //判断是否是文件上传
-        System.out.println(ServletFileUpload.isMultipartContent(request));
         if (ServletFileUpload.isMultipartContent(request)) {
-            System.out.println("file upload");
             param = createFileParam(request);
         }else{
             param = createFormParam(request);

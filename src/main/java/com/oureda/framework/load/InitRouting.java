@@ -24,7 +24,6 @@ public class InitRouting {
     public static Map<Request, Handler> HANDLER_MAP = new HashMap<>();
 
     static {
-        System.out.println("initRouting");
         BEAN_MAP = LoadAllBean.BEAN_MAP;
         for (Map.Entry<Class<?>, Object> entry : BEAN_MAP.entrySet()) {
             Class<?> beanClass = entry.getKey();
@@ -37,7 +36,6 @@ public class InitRouting {
                     Routing.METHOD requestMethod = routing.method();
                     Request request = new Request(requestPath,requestMethod.toString());
                     Handler handler = new Handler(beanClass,method);
-                    System.out.println(request);
                     HANDLER_MAP.put(request,handler);
 
                 }

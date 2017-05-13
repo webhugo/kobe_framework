@@ -8,3 +8,5 @@
     - file_upload_limit=...
 2. 可以使用注解@Controller,@Service,@Routing,@Inject
 3. 支持文件上传
+4. 路由参数是Param
+5. 在com.oureda.project下面有示范例子

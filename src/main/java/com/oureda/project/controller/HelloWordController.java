@@ -33,7 +33,6 @@ public class HelloWordController {
     public View view(Param param) {
         List<FormParam> formParamList = param.getFormParamList();
         for (FormParam formParam : formParamList) {
-            System.out.println(formParam);
         }
         helloService.sayHello();
         View view = new View();
@@ -41,7 +40,6 @@ public class HelloWordController {
         Map<String, Object> map = new HashMap<>();
         map.put("test", "test");
         view.setModel(map);
-        System.out.println(view);
         return view;
     }
 
@@ -56,7 +54,6 @@ public class HelloWordController {
     public View upload(Param param) throws IOException {
         // TODO 17-5-12
         List<FileParam> fileParamList = param.getFileParamList();
-        System.out.println(fileParamList.size());
         return new View("index.jsp");
     }
 }

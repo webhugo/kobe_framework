@@ -20,7 +20,6 @@ public class ReflectUtil {
         try {
             instance = cls.newInstance();
         } catch ( Exception e){
-            System.out.println("new instance failure"+ e);
             throw new RuntimeException(e);
         }
         return instance;
@@ -32,7 +31,6 @@ public class ReflectUtil {
             method.setAccessible(true);
             result = method.invoke(obj,params);
         }catch (Exception e){
-            System.out.println("invoke method failure"+e);
             throw new RuntimeException(e);
         }
         return result;
@@ -44,7 +42,6 @@ public class ReflectUtil {
             field.setAccessible(true);
             field.set(obj,value);
         }catch (Exception e){
-            System.out.println("set field failure"+e);
             throw new RuntimeException(e);
         }
     }

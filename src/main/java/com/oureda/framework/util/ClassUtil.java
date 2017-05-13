@@ -37,7 +37,6 @@ public class ClassUtil {
         try {
             cls = Class.forName(className, isInitialized, getClassLoader());
         } catch (ClassNotFoundException e) {
-            System.out.println("load class failure"+ e);
             throw new RuntimeException(e);
         }
         return cls;
@@ -84,7 +83,6 @@ public class ClassUtil {
                 }
             }
         } catch (Exception e) {
-            System.out.println("get class set failure"+ e);
             throw new RuntimeException(e);
         }
         return classSet;

@@ -14,7 +14,6 @@ public class LoadAllBean {
     public static Map<Class<?>, Object> BEAN_MAP = new HashMap<>();
 
     static {
-        System.out.println("initLoadAllBean");
         for (Class<?> cls : LoadAllClass.set) {
             if(cls.isAnnotationPresent(Controller.class)){
                 BEAN_MAP.put(cls,ReflectUtil.newInstance(cls));

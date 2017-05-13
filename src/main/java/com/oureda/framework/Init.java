@@ -21,7 +21,6 @@ public class Init {
         for (Class<?> cls : classList) {
             ClassUtil.loadClass(cls.getName());
         }
-        System.out.println("init");
     }
 
     public static void main(String[] args) {
