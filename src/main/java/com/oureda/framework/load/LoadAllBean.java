@@ -26,6 +26,13 @@ public class LoadAllBean {
         }
     }
 
+    /**
+     * 设置 Bean 实例
+     */
+    public static void setBean(Class<?> cls, Object obj) {
+        BEAN_MAP.put(cls, obj);
+    }
+
     public static void main(String[] args) {
         System.out.println(BEAN_MAP);
     }

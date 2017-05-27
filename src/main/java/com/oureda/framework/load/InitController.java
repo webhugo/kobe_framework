@@ -42,6 +42,6 @@ public class InitController {
         return LoadAllBean.BEAN_MAP.get(cls);
     }
     public static void main(String[] args) {
-        System.out.println(CONTROLLER_SET);;
+        System.out.println(CONTROLLER_SET);
     }
 }

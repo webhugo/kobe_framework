@@ -1,11 +1,10 @@
-package com.oureda.project.controller;
+package com.oureda.test.project.controller;
 
 import com.oureda.framework.annotation.Controller;
 import com.oureda.framework.annotation.Inject;
 import com.oureda.framework.annotation.Routing;
 import com.oureda.framework.handleRouter.*;
-import com.oureda.framework.util.FileUtil;
-import com.oureda.project.service.HelloService;
+import com.oureda.test.project.service.HelloService;
 
 import java.io.*;
 import java.util.HashMap;

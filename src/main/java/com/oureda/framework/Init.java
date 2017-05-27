@@ -15,8 +15,9 @@ public class Init {
                 LoadAllBean.class,
                 InitRouting.class,
                 InitController.class,
+                AopHelper.class,//必须要在inject之前
                 InitInject.class,
-                InitService.class
+                InitService.class,
         };
         for (Class<?> cls : classList) {
             ClassUtil.loadClass(cls.getName());

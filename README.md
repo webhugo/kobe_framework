@@ -6,7 +6,8 @@
     - base_package=...(必须)
     - jsp_path=...
     - file_upload_limit=...
-2. 可以使用注解@Controller,@Service,@Routing,@Inject
+2. 可以使用注解@Controller,@Service,@Routing,@Inject,@Abject
 3. 支持文件上传
 4. 路由参数是Param
 5. 在com.oureda.project下面有示范例子
+6. 支持切面编程
