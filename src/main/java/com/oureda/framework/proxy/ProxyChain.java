@@ -29,6 +29,8 @@ public class ProxyChain {
         this.proxyList = proxyList;
     }
 
+    private Object methodResult;
+
 
     public Object[] getMethodParams() {
         return methodParams;
@@ -42,10 +44,14 @@ public class ProxyChain {
         return targetMethod;
     }
 
+    public Object getMethodResult() {
+        return methodResult;
+    }
 
     public Object doProxyChain() throws Throwable {
-        Object methodResult;
+
         if (proxyIndex < proxyList.size()) {
+            //相当于递归执行实现链式
             methodResult = proxyList.get(proxyIndex++).doProxy(this);
         } else {
             methodResult = methodProxy.invokeSuper(targetObject, methodParams);

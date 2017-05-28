@@ -84,7 +84,7 @@ public class DispatcherServlet extends HttpServlet {
 
             }
         } finally {
-            System.out.println("destroy");
+
         }
     }
 

@@ -15,7 +15,7 @@ public class Init {
                 LoadAllBean.class,
                 InitRouting.class,
                 InitController.class,
-                AopHelper.class,//必须要在inject之前
+                InitAspect.class,//必须要在inject之前,因为会产生新的
                 InitInject.class,
                 InitService.class,
         };

@@ -33,7 +33,4 @@ public class LoadAllBean {
         BEAN_MAP.put(cls, obj);
     }
 
-    public static void main(String[] args) {
-        System.out.println(BEAN_MAP);
-    }
 }
